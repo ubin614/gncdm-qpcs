@@ -1,0 +1,22 @@
+# 가상환경
+gncdm_env/
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# 데이터 전처리 중간 파일
+data/
+
+# 개별 학생 진단 이미지 (불필요)
+result/QPCS/diagnosis/individual/
+result/QPCS/new_students/
+result/QPCS/figures/
+
+# 검증용 결과 (배포용 아님)
+result/QPCS_full/result_all.npy
+
+# 기타
+.DS_Store
+*.log
