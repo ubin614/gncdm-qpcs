@@ -46,13 +46,13 @@ st.subheader("📌 G-NCDM이란?")
 col_a, col_b = st.columns([3, 2])
 with col_a:
     st.markdown("""
-**G-NCDM(Generative Neural Cognitive Diagnostic Model)**은 딥러닝 기반의
+<b>G-NCDM(Generative Neural Cognitive Diagnostic Model)</b>은 딥러닝 기반의
 차세대 인지진단모델입니다.
 
-기존 CDM(인지진단모델)과의 핵심 차이는 **생성형 진단 함수(GDF)**입니다.
-학습자의 응답 로그를 입력받아 KC 숙달도(θ)를 **즉석에서 생성**하므로,
-새로운 학생의 데이터가 들어오면 **재학습 없이** 바로 진단할 수 있습니다.
-""")
+기존 CDM(인지진단모델)과의 핵심 차이는 <b>생성형 진단 함수(GDF)</b>입니다.
+학습자의 응답 로그를 입력받아 KC 숙달도(θ)를 <b>즉석에서 생성</b>하므로,
+새로운 학생의 데이터가 들어오면 <b>재학습 없이</b> 바로 진단할 수 있습니다.
+""", unsafe_allow_html=True)
 
     st.markdown("**전통 CDM vs G-NCDM**")
     comp_df = pd.DataFrame({
@@ -141,15 +141,15 @@ with col_pdf:
         st.info("문항지 파일을 찾을 수 없습니다.")
 with col_desc:
     st.markdown(f"""
-본 진단 서비스에 사용된 **QPCS(Quantitative Physics Concept Survey)** 문항지입니다.
+본 진단 서비스에 사용된 <b>QPCS(Quantitative Physics Concept Survey)</b> 문항지입니다.
 
-- **문항 수**: {N_ITEM}개
-- **측정 개념**: 6개 지식요소(KC)
-- **대상**: 고등학교 물리 개념 이해도 측정
+- <b>문항 수</b>: {N_ITEM}개
+- <b>측정 개념</b>: 6개 지식요소(KC)
+- <b>대상</b>: 고등학교 물리 개념 이해도 측정
 
-학생들에게 직접 배포하여 응답 데이터를 수집한 후,  
-**[데이터 업로드]** 페이지에서 진단을 실행하세요.
-""")
+학생들에게 직접 배포하여 응답 데이터를 수집한 후,<br>
+<b>[데이터 업로드]</b> 페이지에서 진단을 실행하세요.
+""", unsafe_allow_html=True)
 
 st.divider()
 
