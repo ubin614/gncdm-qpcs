@@ -13,14 +13,61 @@ sidebar_nav()
 # ── 히어로 섹션 ───────────────────────────────────────────────────────────────
 st.markdown(f"""
 <div style="background: linear-gradient(135deg, {BRAND_COLOR} 0%, #1A5276 100%);
-            padding: 2.5rem 2rem; border-radius: 16px; color: white; margin-bottom: 1.5rem;">
-  <h1 style="margin:0; font-size:2.2rem;">🧠 G-NCDM 인지진단 서비스</h1>
-  <p style="margin:0.5rem 0 0; font-size:1.05rem; opacity:0.9;">
-    Generative Neural Cognitive Diagnostic Model<br>
-    학생 개개인의 <b>지식요소(KC) 숙달도</b>를 즉각 진단합니다
-  </p>
+            padding: 2.5rem 2rem; border-radius: 16px; color: white;
+            margin-bottom: 1.5rem; display: flex; align-items: center; gap: 2rem;">
+
+  <!-- 좌측: 서비스 제목 -->
+  <div style="flex: 1.2; min-width: 0;">
+    <h1 style="margin:0; font-size:2.2rem;">🧠 G-NCDM 인지진단 서비스</h1>
+    <p style="margin:0.5rem 0 0; font-size:1.05rem; opacity:0.9;">
+      Generative Neural Cognitive Diagnostic Model<br>
+      학생 개개인의 <b>지식요소(KC) 숙달도</b>를 즉각 진단합니다
+    </p>
+  </div>
+
+  <!-- 구분선 -->
+  <div style="width:1px; background:rgba(255,255,255,0.3); align-self:stretch;"></div>
+
+  <!-- 우측: 논문 출처 -->
+  <div style="flex: 1; min-width: 0;">
+    <div style="font-size:0.72rem; opacity:0.7; letter-spacing:0.08em; text-transform:uppercase;
+                margin-bottom:0.4rem;">📌 원본 모델 출처</div>
+    <div style="font-size:0.92rem; font-weight:600; line-height:1.4;">
+      Generative Cognitive Diagnosis
+    </div>
+    <div style="font-size:0.82rem; opacity:0.85; margin-top:0.2rem;">
+      Jiatong Li, Qi Liu, Mengxiao Zhu (2025)
+    </div>
+    <div style="margin-top:0.6rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
+      <a href="https://arxiv.org/abs/2507.09831" target="_blank"
+         style="background:rgba(255,255,255,0.18); color:white; text-decoration:none;
+                border:1px solid rgba(255,255,255,0.35); border-radius:6px;
+                padding:0.25rem 0.7rem; font-size:0.78rem;">
+        📄 arXiv:2507.09831
+      </a>
+      <a href="https://github.com/CSLiJT/Generative-CD" target="_blank"
+         style="background:rgba(255,255,255,0.18); color:white; text-decoration:none;
+                border:1px solid rgba(255,255,255,0.35); border-radius:6px;
+                padding:0.25rem 0.7rem; font-size:0.78rem;">
+        💻 GitHub
+      </a>
+    </div>
+  </div>
+
 </div>
 """, unsafe_allow_html=True)
+
+# ── BibTeX 인용 ───────────────────────────────────────────────────────────────
+with st.expander("📎 논문 인용 (BibTeX)", expanded=False):
+    st.code("""@misc{li2025generativecognitivediagnosis,
+      title={Generative Cognitive Diagnosis},
+      author={Jiatong Li and Qi Liu and Mengxiao Zhu},
+      year={2025},
+      eprint={2507.09831},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2507.09831},
+}""", language="bibtex")
 
 # ── 핵심 지표 ─────────────────────────────────────────────────────────────────
 c1, c2, c3, c4 = st.columns(4)
