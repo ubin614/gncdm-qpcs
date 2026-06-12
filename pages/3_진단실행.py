@@ -7,7 +7,7 @@ import pandas as pd
 import streamlit as st
 from utils.common import (set_page, sidebar_nav, load_model, load_reference,
                           diagnose, KC_NAMES, N_ITEM, N_TRAIN_USER,
-                          BRAND_COLOR, TEMPLATE_CSV)
+                          BRAND_COLOR, TEMPLATE_CSV, EXAM_PDF)
 
 set_page()
 sidebar_nav()
@@ -39,13 +39,27 @@ with st.expander("📋 CSV 입력 양식 안내 (클릭하여 확인 & 다운로
     else:
         csv_bytes = template_df.to_csv(index=False).encode("utf-8-sig")
 
-    st.download_button(
-        "⬇️ CSV 양식 다운로드",
-        data=csv_bytes,
-        file_name="QPCS_input_template.csv",
-        mime="text/csv",
-        use_container_width=True
-    )
+    col_dl1, col_dl2 = st.columns(2)
+    with col_dl1:
+        st.download_button(
+            "⬇️ CSV 입력 양식 다운로드",
+            data=csv_bytes,
+            file_name="QPCS_input_template.csv",
+            mime="text/csv",
+            use_container_width=True
+        )
+    with col_dl2:
+        if os.path.exists(EXAM_PDF):
+            with open(EXAM_PDF, "rb") as f:
+                st.download_button(
+                    "📄 QPCS 문항지 다운로드 (PDF)",
+                    data=f.read(),
+                    file_name="QPCS_문항지.pdf",
+                    mime="application/pdf",
+                    use_container_width=True
+                )
+        else:
+            st.info("문항지 파일 없음")
 
 st.divider()
 

@@ -4,7 +4,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 import pandas as pd
 import streamlit as st
-from utils.common import set_page, sidebar_nav, KC_DEF_CSV, N_ITEM, N_TRAIN_USER, BRAND_COLOR
+from utils.common import (set_page, sidebar_nav, KC_DEF_CSV,
+                          N_ITEM, N_TRAIN_USER, BRAND_COLOR, EXAM_PDF)
 
 set_page()
 sidebar_nav()
@@ -118,6 +119,37 @@ for i, row in df_kc.iterrows():
               <code>{row['관련 과학과 성취기준']}</code>
             </div>
             """, unsafe_allow_html=True)
+
+st.divider()
+
+# ── 문항지 다운로드 ───────────────────────────────────────────────────────────
+st.subheader("📄 진단 문항지")
+col_pdf, col_desc = st.columns([1, 3])
+with col_pdf:
+    import os
+    if os.path.exists(EXAM_PDF):
+        with open(EXAM_PDF, "rb") as f:
+            st.download_button(
+                label="⬇️ QPCS 문항지 다운로드 (PDF)",
+                data=f.read(),
+                file_name="QPCS_문항지.pdf",
+                mime="application/pdf",
+                use_container_width=True,
+                type="primary",
+            )
+    else:
+        st.info("문항지 파일을 찾을 수 없습니다.")
+with col_desc:
+    st.markdown(f"""
+본 진단 서비스에 사용된 **QPCS(Quantitative Physics Concept Survey)** 문항지입니다.
+
+- **문항 수**: {N_ITEM}개
+- **측정 개념**: 6개 지식요소(KC)
+- **대상**: 고등학교 물리 개념 이해도 측정
+
+학생들에게 직접 배포하여 응답 데이터를 수집한 후,  
+**[데이터 업로드]** 페이지에서 진단을 실행하세요.
+""")
 
 st.divider()
 

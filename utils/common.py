@@ -17,6 +17,7 @@ COORDS_2D     = os.path.join(BASE, "result/QPCS/umap_train_coords_2d.npy")
 COORDS_3D     = os.path.join(BASE, "result/QPCS/umap_train_coords_3d.npy")
 KC_DEF_CSV    = os.path.join(BASE, "QPCS_KC6_definitions.csv")
 TEMPLATE_CSV  = os.path.join(BASE, "QPCS_new.csv")
+EXAM_PDF      = os.path.join(BASE, "QPCS_final_readable.pdf")
 
 KC_NAMES      = ["KC1","KC2","KC3","KC4","KC5","KC6"]
 N_TRAIN_USER  = 730
