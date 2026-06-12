@@ -188,7 +188,7 @@ with col_pdf:
         st.info("문항지 파일을 찾을 수 없습니다.")
 with col_desc:
     st.markdown(f"""
-본 진단 서비스에 사용된 <b>QPCS(Quantitative Physics Concept Survey)</b> 문항지입니다.
+본 진단 서비스에 사용된 <b>QPCS(Quantum Physics Concept Survey)</b> 문항지입니다.
 
 - <b>문항 수</b>: {N_ITEM}개
 - <b>측정 개념</b>: 6개 지식요소(KC)
